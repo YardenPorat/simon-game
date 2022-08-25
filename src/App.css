@@ -1,38 +1,75 @@
+:root {
+  --circleSize: 150px;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: column;
+}
+
+button {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4caf50;
   color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.item {
+  width: var(--circleSize);
+  height: var(--circleSize);
+  border-radius: 50%;
+  border: 1px solid black;
+  transition: all 800ms ease-in-out;
+}
+.item-0 {
+  background-color: red;
+}
+.item-1 {
+  background-color: yellow;
+}
+.item-2 {
+  background-color: green;
+}
+.item-3 {
+  background-color: blue;
+}
+.item-4 {
+  background-color: pink;
+}
+.item-5 {
+  background-color: purple;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, var(--circleSize));
+}
+
+.flash {
+  animation-name: flash;
+  animation-duration: 900ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+}
+
+@keyframes flash {
+  0% {
+    transform: scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    background-color: white;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
