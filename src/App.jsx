@@ -15,19 +15,13 @@ function App() {
   const refArr = useMemo(() => {
     return [item0, item1, item2, item3, item4, item5];
   }, [item0, item1, item2, item3, item4, item5]);
-  const [simonService, setSimonService] = useState();
-
-  useEffect(() => {
-    const simonService = new SimonGame(refArr, setMessage);
-    setSimonService(simonService);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const simonService = useRef(new SimonGame(refArr, setMessage));
 
   const start = async (e) => {
-    await simonService.start(e);
+    await simonService.current.start(e);
   };
   const onCircleClick = async (e) => {
-    await simonService.onCircleClick(e);
+    await simonService.current.onCircleClick(e);
   };
 
   return (

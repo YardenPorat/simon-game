@@ -104,8 +104,6 @@ export class SimonGame {
       return getRandomNumber(0, 5);
     }
 
-    /** @type {number} */
-    // @ts-ignore
     let randomNumber = this.numbers.at(-1);
     while (randomNumber === this.numbers.at(-1)) {
       randomNumber = getRandomNumber(0, 5);
